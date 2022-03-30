@@ -21,7 +21,6 @@ sa = open('students_attendance.json')
 students_attendance = json.load(sa)['attendance']
 
 student_id = get_last_sign_out(students_attendance)
-print(student_id)
 
 # Would be call to Student Detailed Info with student_id and school_id as parameter
 sdi = open('student_detailed_info/' + student_id + '.json')
