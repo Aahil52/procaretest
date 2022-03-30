@@ -26,7 +26,7 @@ student_id = get_last_sign_out(students_attendance)
 sdi = open('student_detailed_info/' + student_id + '.json')
 student_detailed_info = json.load(sdi)['student']
 
-student_name = student_detailed_info['first_name'] + ' ' + student_detailed_info['last_name']
+student_name = f"{student_detailed_info['first_name']} {student_detailed_info['last_name']}"
 room_id = student_detailed_info['room_id']
 
 # Would be call to Rooms with school_id as parameter
@@ -35,4 +35,4 @@ rooms = json.load(r)['rooms']
 
 room_name = get_room_name(rooms, room_id)
 
-print(room_name + ": " + "Please bring " + student_name + " to the front. Their parent is here to pick them up.")
+print(f"{room_name}: Please bring {student_name} to the front. Their parent is here to pick them up.")
