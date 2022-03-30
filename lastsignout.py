@@ -23,7 +23,7 @@ students_attendance = json.load(sa)['attendance']
 student_id = get_last_sign_out(students_attendance)
 
 # Would be call to Student Detailed Info with student_id and school_id as parameter
-sdi = open('student_detailed_info/' + student_id + '.json')
+sdi = open(f'student_detailed_info/{student_id}.json')
 student_detailed_info = json.load(sdi)['student']
 
 student_name = f"{student_detailed_info['first_name']} {student_detailed_info['last_name']}"
