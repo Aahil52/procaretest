@@ -1,6 +1,7 @@
 import json
 from datetime import datetime
 
+
 def get_last_sign_out(students_attendance):
     sign_out_times = []
     for i in range(len(students_attendance)):
@@ -15,23 +16,22 @@ def get_room_name(rooms, id):
         if rooms[i]['id'] == id:
             return rooms[i]['name']
 
-sa = open('students_attendance.json')
-sdi = open('student_detailed_info.json')
-r = open('rooms.json')
-
 # Would be call to Students Attendance with school_id as parameter
+sa = open('students_attendance.json')
 students_attendance = json.load(sa)['attendance']
 
 student_id = get_last_sign_out(students_attendance)
 print(student_id)
 
 # Would be call to Student Detailed Info with student_id and school_id as parameter
+sdi = open('student_detailed_info/' + student_id + '.json')
 student_detailed_info = json.load(sdi)['student']
 
 student_name = student_detailed_info['first_name'] + ' ' + student_detailed_info['last_name']
 room_id = student_detailed_info['room_id']
 
 # Would be call to Rooms with school_id as parameter
+r = open('rooms.json')
 rooms = json.load(r)['rooms']
 
 room_name = get_room_name(rooms, room_id)
