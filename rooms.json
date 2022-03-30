@@ -1,0 +1,23 @@
+{
+    "page": 1,
+    "per_page": 50,
+    "total": 4,
+    "rooms": [
+        {
+            "id": "emrynf0z-tf7d-176h-4vt6-jtqvbhlenswi",
+            "name": "Room 1"
+        },
+        {
+            "id": "rm9nkvj7-mgq0-ceiu-94de-n1osoytnds62",
+            "name": "Room 2"
+        },
+        {
+            "id": "qq8bgzlr-co6p-nqxw-6yy6-38zcno03f1kq",
+            "name": "Room 3"
+        },
+        {
+            "id": "pvx1copw-xkqi-fxbp-02mw-a8o792gj8obb",
+            "name": "Room 4"
+        }
+    ]
+}
