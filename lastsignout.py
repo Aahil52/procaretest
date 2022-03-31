@@ -4,17 +4,16 @@ from datetime import datetime
 
 def get_last_sign_out(students_attendance):
     sign_out_times = []
-    for i in range(len(students_attendance)):
-        sot_str = students_attendance[i]['sign_out_time']
-        sot_obj = datetime.strptime(sot_str, '%Y-%m-%d %H:%M')
-        sign_out_times.append((students_attendance[i]['student_id'], sot_obj))
+    for student in students_attendance:
+        sot_obj = datetime.strptime(student['sign_out_time'], '%Y-%m-%d %H:%M')
+        sign_out_times.append((student['student_id'], sot_obj))
     sign_out_times.sort(key=lambda x: x[1], reverse = True)
     return sign_out_times[0][0]
 
 def get_room_name(rooms, id):
-    for i in range(len(rooms)):
-        if rooms[i]['id'] == id:
-            return rooms[i]['name']
+    for room in rooms:
+        if room['id'] == id:
+            return room['name']
 
 # Would be call to Students Attendance with school_id as parameter
 sa = open('students_attendance.json')
