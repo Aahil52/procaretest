@@ -14,21 +14,21 @@ def get_room_name(rooms, id):
             return room['name']
 
 # Would be call to Students Attendance with school_id as parameter
-sa = open('students_attendance.json')
-students_attendance = json.load(sa)['attendance']
+with open('students_attendance.json') as sa:
+    students_attendance = json.load(sa)['attendance']
 
 student_id = get_last_sign_out(students_attendance)
 
 # Would be call to Student Detailed Info with student_id and school_id as parameter
-sdi = open(f'student_detailed_info/{student_id}.json')
-student_detailed_info = json.load(sdi)['student']
+with open(f'student_detailed_info/{student_id}.json') as sdi:
+    student_detailed_info = json.load(sdi)['student']
 
 student_name = f"{student_detailed_info['first_name']} {student_detailed_info['last_name']}"
 room_id = student_detailed_info['room_id']
 
 # Would be call to Rooms with school_id as parameter
-r = open('rooms.json')
-rooms = json.load(r)['rooms']
+with open('rooms.json') as r:
+    rooms = json.load(r)['rooms']
 
 room_name = get_room_name(rooms, room_id)
 
