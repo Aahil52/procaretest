@@ -3,10 +3,8 @@ from datetime import datetime
 
 
 def get_last_sign_out(students_attendance):
-    sign_out_times = []
-    for student in students_attendance:
-        sot_obj = datetime.strptime(student['sign_out_time'], '%Y-%m-%d %H:%M')
-        sign_out_times.append((student['student_id'], sot_obj))
+    sign_out_times = [(student['student_id'], datetime.strptime(student['sign_out_time'], '%Y-%m-%d %H:%M'))
+                       for student in students_attendance]
     sign_out_times.sort(key=lambda x: x[1], reverse = True)
     return sign_out_times[0][0]
 
