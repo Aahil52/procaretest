@@ -9,9 +9,9 @@ def get_last_sign_out(students_attendance):
     sign_out_times.sort(key=lambda x: x[1], reverse = True)
     return sign_out_times[0][0]
 
-def get_room_name(rooms, id):
+def get_room_name(rooms, target_id):
     for room in rooms:
-        if room['id'] == id:
+        if room['id'] == target_id:
             return room['name']
 
 # Would be call to Students Attendance with school_id as parameter
