@@ -6,8 +6,8 @@ from datetime import datetime
 def get_last_sign_out(students_attendance):
     sign_out_times = [(student['student_id'], datetime.strptime(student['sign_out_time'], '%Y-%m-%d %H:%M'))
                        for student in students_attendance]
-    sign_out_times.sort(key=lambda x: x[1], reverse = True)
-    return sign_out_times[0][0]
+    last_sign_out = max(sign_out_times, key=lambda x: x[1])
+    return last_sign_out[0]
 
 def get_room_name(rooms, target_id):
     for room in rooms:
